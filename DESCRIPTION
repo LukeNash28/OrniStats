@@ -3,6 +3,6 @@ Type: Package
 Title: Specialised data handling package for the OrniStats project.
 Version: 0.0
 LazyData: true
-Imports: dplyr, ggplot2, kableExtra, forecast, tidyr, TSA, abdiv, lubridate, stringr, KScorrect, DescTools, semEff
+Imports: dplyr, magrittr, ggplot2, kableExtra, forecast, tidyr, TSA, abdiv, lubridate, stringr, KScorrect, DescTools, semEff
 RoxygenNote: 7.3.0
 Encoding: UTF-8
