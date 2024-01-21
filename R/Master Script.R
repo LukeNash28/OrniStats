@@ -25,11 +25,11 @@ recordTable <- function(qualifier, path = NA) {
   
   subData = data.frame(subset(OrniStatsRecords, Qualifier %in% qualifier & "Year of Discovery" < 2022))
   table = subData[, c("Record.No.", "Recording.Area", "Site", "Date.of.Discovery", "Date.of.Departure",
-                    "Stay.Length", "Age", "Sex", "Notes")]
+                    "Stay.Length", "Age", "Sex")]
   table = table[order(table$Record.No., decreasing=T), ]
   output = table %>%
     kbl(align = 'c', col.names = c("Record No.", "Recording Area", "Site", "Discovery", "Departure",
-                                   "Length of Stay (days)", "Age", "Sex", "Notes"), row.names = FALSE,
+                                   "Length of Stay (days)", "Age", "Sex"), row.names = FALSE,
         full_width = T) %>%
     kable_material(c("striped","bordered", "condensed", "responsive")) %>%
     column_spec(1, bold=T)
