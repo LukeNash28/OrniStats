@@ -1,3 +1,16 @@
+require(dplyr)
+require(ggplot2)
+require(forecast)
+require(tidyr)
+require(TSA)
+require(abdiv)
+require(lubridate)
+require(stringr)
+require(KScorrect)
+require(DescTools)
+require(semEff)
+require(kableExtra)
+
 #' Extracting values from forecast objects using OrniStatsData for use in ggplot2
 #' 
 #' @param fcast Object of type `forecast` from which the values are extracted
