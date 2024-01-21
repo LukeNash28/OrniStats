@@ -612,6 +612,7 @@ speciesPlots <- function(qualifier, path = NA) {
 #' @param max_degree Maximum degree polynomial at which regression analysis is conducted. If program is running slowly, set this value to 5.
 #' @param approx_dates Remove records where the date of arrival or departure is approximate. Defaults to `FALSE`, but should be set to `TRUE` if either `x` or `y` is the date of arrival or departure at below an annual level.
 #' @return Summary table of the model selected in the readline.
+#' @export
 
 speciesRegression <- function(qualifier, x, y, max_degree = 10, approx_dates = FALSE) {
   data("OrniStatsRecords", package="OrniStats")
