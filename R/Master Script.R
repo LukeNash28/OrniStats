@@ -36,7 +36,7 @@ recordTable <- function(qualifier, path = NA) {
   
   data("OrniStatsRecords", package="ornistats")
   
-  subData = data.frame(subset(OrniStatsRecords, Qualifier %in% qualifier & "Year of Discovery" < 2022))
+  subData = data.frame(subset(OrniStatsRecords, Qualifier %in% qualifier & "Year.of.Discovery" != 2022))
   table = subData[, c("Record.No.", "Recording.Area", "Site", "Date.of.Discovery", "Date.of.Departure",
                     "Stay.Length", "Age", "Sex")]
   table = table[order(table$Record.No., decreasing=T), ]
@@ -62,7 +62,9 @@ recordTable <- function(qualifier, path = NA) {
       stop("Require boolean input as prompt")
     }
   } else {
-    stop("Path must be provided to save graph")
+    if (isTRUE(var)) {
+      stop("Path must be provided to save graph")
+    }
   }
 }
 
@@ -243,8 +245,9 @@ yearlyForecast <- function(qualifier, path=NA) {
 #' @export
 
 speciesStats <- function(qualifier) {
-  data("OrniStatsRecords", package="OrniStats")
-  data("OrniStatsLocations", package="OrniStats")
+  data("OrniStatsRecords", package="ornistats")
+  data("OrniStatsLocations", package="ornistats")
+  force(OrniStatsLocations)
   
   subData = data.frame(subset(OrniStatsRecords, Qualifier %in% qualifier & 
                                 !("Year.of.Discovery" %in% c(2022,2023))))
@@ -292,6 +295,8 @@ speciesStats <- function(qualifier) {
     siteList <- c()
     returnCounter <- 0
     baseYear <- recordsSep$Year.of.Discovery[1]
+    sites <- NULL
+  
     for (i in 1:nrow(recordsSep)){
       year <- recordsSep$Year.of.Discovery[i]
       subsetValue <- recordsSep$Subset[i]
@@ -353,12 +358,14 @@ speciesPlots <- function(qualifier, path = NA) {
   combinedData$Date.of.Discovery <- as.Date(combinedData$Date.of.Discovery, format = "%d/%m/%Y")
   
   message("*** LENGTH OF STAY PLOTS ***")
-  stayData <- subset(combinedData, Approx.Date != 1)
+  stayData <- subset(combinedData, "Approx.Date" != 1)
+  print(stayData)
   
   stayCounts <- stayData %>%
     group_by(Stay.Length) %>%
     summarise(Frequency = n_distinct(Helper))
-  stays = data.frame(Stay.Length = as.numeric(1:max(stayCounts$Stay.Length)))
+  print(stayCounts)
+  stays = data.frame(Stay.Length = seq(1, max(stayCounts$Stay.Length), by=1))
   stayCounts = left_join(stays, stayCounts, by = 'Stay.Length') %>%
     replace_na(list(Frequency = 0))
   
@@ -471,7 +478,7 @@ speciesPlots <- function(qualifier, path = NA) {
   
   seasonalCombined <- combinedData
   seasonalCombined$Date.of.Discovery <- update(seasonalCombined$Date.of.Discovery, year=2023)
-  seasonalCombined <- subset(seasonalCombined, Approx.Date != 1)
+  seasonalCombined <- subset(seasonalCombined, "Approx.Date" != 1)
   
   stayPlotDate <- ggplot(seasonalCombined, aes(Date.of.Discovery, Stay.Length))+
     geom_point(color = "red", size=2)+

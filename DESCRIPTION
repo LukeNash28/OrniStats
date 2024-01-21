@@ -1,7 +1,7 @@
 Package: ornistats
 Type: Package
 Title: Specialised data handling package for the OrniStats project.
-Version: 0.0
+Version: 0.1
 LazyData: true
 Imports: dplyr, magrittr, ggplot2, kableExtra, forecast, tidyr, TSA, abdiv, lubridate, stringr, KScorrect, DescTools, semEff
 RoxygenNote: 7.3.0
