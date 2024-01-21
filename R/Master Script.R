@@ -21,7 +21,7 @@ forecastExtract <- function(fcast){
 
 recordTable <- function(qualifier, path = NA) {
   
-  data("OrniStatsRecords", package="OrniStats")
+  data("OrniStatsRecords", package="ornistats")
   
   subData = data.frame(subset(OrniStatsRecords, Qualifier %in% qualifier & "Year of Discovery" < 2022))
   table = subData[, c("Record.No.", "Recording.Area", "Site", "Date.of.Discovery", "Date.of.Departure",
@@ -61,7 +61,7 @@ recordTable <- function(qualifier, path = NA) {
 #' @export
 
 yearlyForecast <- function(qualifier, path=NA) {
-  data("OrniStatsRecords", package="OrniStats")
+  data("OrniStatsRecords", package="ornistats")
   
   subData = data.frame(subset(OrniStatsRecords, Qualifier %in% qualifier & 
                               !("Year.of.Discovery" %in% c(2022, 2023)) 
@@ -330,8 +330,8 @@ speciesStats <- function(qualifier) {
 #' @export
 
 speciesPlots <- function(qualifier, path = NA) {
-  data("OrniStatsRecords", package="OrniStats")
-  data("OrniStatsLocations", package="OrniStats")
+  data("OrniStatsRecords", package="ornistats")
+  data("OrniStatsLocations", package="ornistats")
   
   subData = data.frame(subset(OrniStatsRecords, Qualifier %in% qualifier & Year.of.Discovery != 2023))
   OrniStatsLocations <- OrniStatsLocations %>%
@@ -615,8 +615,8 @@ speciesPlots <- function(qualifier, path = NA) {
 #' @export
 
 speciesRegression <- function(qualifier, x, y, max_degree = 10, approx_dates = FALSE) {
-  data("OrniStatsRecords", package="OrniStats")
-  data("OrniStatsLocations", package="OrniStats")
+  data("OrniStatsRecords", package="ornistats")
+  data("OrniStatsLocations", package="ornistats")
   
   subData = data.frame(subset(OrniStatsRecords, Qualifier %in% qualifier & 
                                 "Year.of.Discovery" != 2023))
