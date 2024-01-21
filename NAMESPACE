@@ -3,5 +3,6 @@
 export(forecastExtract)
 export(recordTable)
 export(speciesPlots)
+export(speciesRegression)
 export(speciesStats)
 export(yearlyForecast)
