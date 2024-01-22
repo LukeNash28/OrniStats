@@ -7,6 +7,7 @@
 #' @importFrom kableExtra column_spec
 #' @importFrom KScorrect LcKS
 #' @import lubridate
+#' @importFrom lubridate isoweek
 #' @importFrom stringr str_detect
 #' @importFrom TSA McLeod.Li.test
 #' @importFrom tidyr replace_na
@@ -278,6 +279,8 @@ speciesStats <- function(qualifier) {
     group_by(isoweek(Date.of.Discovery)) %>%
     summarise(count = n_distinct(Record.No.))
   
+  print(weeklyData)
+  
   yearData = subData %>%
     subset(Subset %in% c(NA, 'A')) %>%
     group_by(Year.of.Discovery) %>%
@@ -370,12 +373,10 @@ speciesPlots <- function(qualifier, path = NA) {
   
   message("*** LENGTH OF STAY PLOTS ***")
   stayData <- subset(combinedData, "Approx.Date" != 1)
-  print(stayData)
   
   stayCounts <- stayData %>%
     group_by(Stay.Length) %>%
     summarise(Frequency = n_distinct(Helper))
-  print(stayCounts)
   stays = data.frame(Stay.Length = seq(1, max(stayCounts$Stay.Length), by=1))
   stayCounts = left_join(stays, stayCounts, by = 'Stay.Length') %>%
     replace_na(list(Frequency = 0))
