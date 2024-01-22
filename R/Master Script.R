@@ -1,5 +1,15 @@
-library(dplyr)
-library(magrittr)
+#' @importFrom abdiv shannon
+#' @import dplyr
+#' @import forecast
+#' @import ggplot2
+#' @importFrom kableExtra kbl
+#' @importFrom kableExtra kable_classic
+#' @importFrom kableExtra column_spec
+#' @importFrom KScorrect LcKS
+#' @import lubridate
+#' @importFrom TSA McLeod.Li.test
+
+require(dplyr)
 require(ggplot2)
 require(forecast)
 require(tidyr)
@@ -8,8 +18,6 @@ require(abdiv)
 require(lubridate)
 require(stringr)
 require(KScorrect)
-require(DescTools)
-require(semEff)
 require(kableExtra)
 
 #' Extracting values from forecast objects using OrniStatsData for use in ggplot2
