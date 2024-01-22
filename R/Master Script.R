@@ -7,6 +7,7 @@
 #' @importFrom kableExtra column_spec
 #' @importFrom KScorrect LcKS
 #' @import lubridate
+#' @importFrom stringr str_detect
 #' @importFrom TSA McLeod.Li.test
 #' @importFrom tidyr replace_na
 
