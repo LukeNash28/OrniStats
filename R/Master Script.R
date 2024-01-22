@@ -1,5 +1,5 @@
-require(dplyr)
-require(magrittr)
+library(dplyr)
+library(magrittr)
 require(ggplot2)
 require(forecast)
 require(tidyr)
