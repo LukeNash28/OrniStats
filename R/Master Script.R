@@ -8,6 +8,7 @@
 #' @importFrom KScorrect LcKS
 #' @import lubridate
 #' @importFrom TSA McLeod.Li.test
+#' @importFrom tidyr replace_na
 
 require(dplyr)
 require(ggplot2)
