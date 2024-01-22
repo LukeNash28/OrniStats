@@ -1,4 +1,5 @@
 require(dplyr)
+require(magrittr)
 require(ggplot2)
 require(forecast)
 require(tidyr)
