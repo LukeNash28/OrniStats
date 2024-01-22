@@ -3,7 +3,7 @@
 #' @import forecast
 #' @import ggplot2
 #' @importFrom kableExtra kbl
-#' @importFrom kableExtra kable_classic
+#' @importFrom kableExtra kable_material
 #' @importFrom kableExtra column_spec
 #' @importFrom KScorrect LcKS
 #' @import lubridate
