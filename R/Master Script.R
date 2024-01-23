@@ -346,8 +346,8 @@ speciesStats <- function(qualifier) {
   CR = (length(relocationsData$numRelocations)/Individual.Count) * mean(relocationsData$numRelocations)
   CF = (length(returnsData$returnsList)/Individual.Count) * mean(returnsData$returnsList)
   
-  Measurements = c("Mortality Rate", "HL", "HT", "Variability", "Irruptivity", "CR", "CF")
-  Statistics = c(mortalityRate, HL, HT, Variability, Irruptivity, CR, CF)
+  Measurements = c("Records", "Individuals", "Mortality Rate", "HL", "HT", "Variability", "Irruptivity", "CR", "CF")
+  Statistics = c(Record.Count, Individual.Count, mortalityRate, HL, HT, Variability, Irruptivity, CR, CF)
   
   output = data.frame(Measurements, Statistics)
   print(output)
