@@ -266,6 +266,7 @@ speciesStats <- function(qualifier) {
   subData$record_unique = paste(subData$Record.No., subData$Subset)
   subData$Date.of.Discovery = as.Date(subData$Date.of.Discovery, format="%d/%m/%Y")
   subData$isoweek = isoweek(subData$Date.of.Discovery)
+  print(subData)
   
   Record.Count = n_distinct(subData$record_unique)
   Individual.Count = nrow(subData[subData$Subset %in% c("A",NA), ])
