@@ -280,8 +280,6 @@ speciesStats <- function(qualifier) {
     group_by(isoweek) %>%
     summarise(count = n_distinct(Record.No.))
   
-  print(weeklyData)
-  
   yearData = subData %>%
     subset(Subset %in% c(NA, 'A')) %>%
     group_by(Year.of.Discovery) %>%
