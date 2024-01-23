@@ -266,7 +266,6 @@ speciesStats <- function(qualifier) {
   subData$record_unique = paste(subData$Record.No., subData$Subset)
   subData$Date.of.Discovery = as.Date(subData$Date.of.Discovery, format="%d/%m/%Y")
   subData$isoweek = isoweek(subData$Date.of.Discovery)
-  print(subData)
   
   Record.Count = n_distinct(subData$record_unique)
   Individual.Count = nrow(subData[subData$Subset %in% c("A",NA), ])
@@ -277,8 +276,7 @@ speciesStats <- function(qualifier) {
     summarise(count = n_distinct(record_unique))
   
   weeklyData = subData %>%
-    filter(Subset %in% c(NA, 'A') & Approx.Date != 1) %>%
-    print() %>%
+    filter(Subset %in% c(NA, 'A') & !is.na(Date.of.Discovery)) %>%
     group_by(isoweek) %>%
     summarise(count = n_distinct(Record.No.))
   
