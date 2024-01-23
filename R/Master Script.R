@@ -1,6 +1,7 @@
 #' @importFrom abdiv shannon
 #' @import dplyr
 #' @import forecast
+#' @importFrom glue glue
 #' @import ggplot2
 #' @importFrom kableExtra kbl
 #' @importFrom kableExtra kable_material
@@ -23,6 +24,7 @@ require(lubridate)
 require(stringr)
 require(KScorrect)
 require(kableExtra)
+require(glue)
 
 #' Extracting values from forecast objects using OrniStatsData for use in ggplot2
 #' 
