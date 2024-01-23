@@ -69,7 +69,7 @@ recordTable <- function(qualifier, path = NA) {
     
   if(!is.na(path)) {
     if (isTRUE(var)) {
-      save_kable(output, file = !!glue("{path}/{qualifier} Records Table"))
+      save_kable(output, file = glue("{path}/{qualifier} Records Table.html"))
       message("Table saved")
     } else if (isFALSE(var)) {
       message("Function halted, table not saved")
@@ -397,7 +397,7 @@ speciesPlots <- function(qualifier, path = NA) {
     var <- readline(prompt = "Save figure (T/F)? ")
     var = as.logical(var)
     if (isTRUE(var)) {
-      ggsave(plot, file = glue("{path}/{qualifier} Record Stays.jpg"))
+      ggsave(stayPlotGeneral, file = glue("{path}/{qualifier} Record Stays.jpg"))
       message("Graph saved")
     } else if (isFALSE(var)) {
       message("Function halted, graph not saved")
@@ -433,7 +433,7 @@ speciesPlots <- function(qualifier, path = NA) {
     var2 <- readline(prompt = "Save figure (T/F)? ")
     var2 = as.logical(var2)
     if (isTRUE(var2)) {
-      ggsave(plot, file = glue("{path}/{qualifier} Record Stays Over Time.jpg"))
+      ggsave(stayPlotYearly, file = glue("{path}/{qualifier} Record Stays Over Time.jpg"))
       message("Graph saved")
     } else if (isFALSE(var2)) {
       message("Function halted, graph not saved")
@@ -456,7 +456,7 @@ speciesPlots <- function(qualifier, path = NA) {
     var3 <- readline(prompt = "Save figure (T/F)? ")
     var3 = as.logical(var3)
     if (isTRUE(var3)) {
-      ggsave(plot, file = glue("{path}/{qualifier} Record Stays By Latitude.jpg"))
+      ggsave(stayPlotLat, file = glue("{path}/{qualifier} Record Stays By Latitude.jpg"))
       message("Graph saved")
     } else if (isFALSE(var3)) {
       message("Function halted, graph not saved")
@@ -479,7 +479,7 @@ speciesPlots <- function(qualifier, path = NA) {
     var4 <- readline(prompt = "Save figure (T/F)? ")
     var4 = as.logical(var4)
     if (isTRUE(var4)) {
-      ggsave(plot, file = glue("{path}/{qualifier} Record Stays By Longitude.jpg"))
+      ggsave(stayPlotLong, file = glue("{path}/{qualifier} Record Stays By Longitude.jpg"))
       message("Graph saved")
     } else if (isFALSE(var4)) {
       message("Function halted, graph not saved")
@@ -506,7 +506,7 @@ speciesPlots <- function(qualifier, path = NA) {
     var5 <- readline(prompt = "Save figure (T/F)? ")
     var5 = as.logical(var5)
     if (isTRUE(var5)) {
-      ggsave(plot, file = glue("{path}/{qualifier} Record Stays By Season.jpg"))
+      ggsave(stayPlotDate, file = glue("{path}/{qualifier} Record Stays By Season.jpg"))
       message("Graph saved")
     } else if (isFALSE(var5)) {
       message("Function halted, graph not saved")
@@ -533,7 +533,7 @@ speciesPlots <- function(qualifier, path = NA) {
     var6 <- readline(prompt = "Save figure (T/F)? ")
     var6 = as.logical(var6)
     if (isTRUE(var6)) {
-      ggsave(plot, file = glue("{path}/{qualifier} Arrival Date over Time.jpg"))
+      ggsave(arrivalPlotYearly, file = glue("{path}/{qualifier} Arrival Date over Time.jpg"))
       message("Graph saved")
     } else if (isFALSE(var6)) {
       message("Function halted, graph not saved")
@@ -556,7 +556,7 @@ speciesPlots <- function(qualifier, path = NA) {
     var7 <- readline(prompt = "Save figure (T/F)? ")
     var7 = as.logical(var7)
     if (isTRUE(var7)) {
-      ggsave(plot, file = glue("{path}/{qualifier} Arrival Date By Latitude.jpg"))
+      ggsave(arrivalPlotLat, file = glue("{path}/{qualifier} Arrival Date By Latitude.jpg"))
       message("Graph saved")
     } else if (isFALSE(var7)) {
       message("Function halted, graph not saved")
@@ -579,7 +579,7 @@ speciesPlots <- function(qualifier, path = NA) {
     var8 <- readline(prompt = "Save figure (T/F)? ")
     var8 = as.logical(var8)
     if (isTRUE(var8)) {
-      ggsave(plot, file = glue("{path}/{qualifier} Arrival Date By Longitude.jpg"))
+      ggsave(arrivalPlotLong, file = glue("{path}/{qualifier} Arrival Date By Longitude.jpg"))
       message("Graph saved")
     } else if (isFALSE(var8)) {
       message("Function halted, graph not saved")
@@ -604,7 +604,7 @@ speciesPlots <- function(qualifier, path = NA) {
     var9 <- readline(prompt = "Save figure (T/F)? ")
     var9 = as.logical(var9)
     if (isTRUE(var9)) {
-      ggsave(plot, file = glue("{path}/{qualifier} Latitude by Year.jpg"))
+      ggsave(latPlotYearly, file = glue("{path}/{qualifier} Latitude by Year.jpg"))
       message("Graph saved")
     } else if (isFALSE(var9)) {
       message("Function halted, graph not saved")
@@ -627,7 +627,7 @@ speciesPlots <- function(qualifier, path = NA) {
     varX <- readline(prompt = "Save figure (T/F)? ")
     varX = as.logical(varX)
     if (isTRUE(varX)) {
-      ggsave(plot, file = glue("{path}/{qualifier} Longitude by Year.jpg"))
+      ggsave(longPlotYearly, file = glue("{path}/{qualifier} Longitude by Year.jpg"))
       message("Graph saved")
     } else if (isFALSE(varX)) {
       message("Function halted, graph not saved")
