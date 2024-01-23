@@ -5,6 +5,7 @@
 #' @importFrom kableExtra kbl
 #' @importFrom kableExtra kable_material
 #' @importFrom kableExtra column_spec
+#' @importFrom kableExtra save_kable
 #' @importFrom KScorrect LcKS
 #' @import lubridate
 #' @importFrom lubridate isoweek
